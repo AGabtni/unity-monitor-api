@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unity-monitor-api", "unity-monitor-api.csproj", "{DB488306-C5DE-9262-E414-869D098F860C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB488306-C5DE-9262-E414-869D098F860C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB488306-C5DE-9262-E414-869D098F860C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB488306-C5DE-9262-E414-869D098F860C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB488306-C5DE-9262-E414-869D098F860C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC9FAAD7-21C8-4512-A9A5-8D12402B56BF}
+	EndGlobalSection
+EndGlobal
