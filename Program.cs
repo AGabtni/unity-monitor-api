@@ -9,8 +9,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Config db context to use PostgreSQL cnx
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+                                            .Replace("${PGDBO}", Environment.GetEnvironmentVariable("PGDBO"))
+                                            .Replace("${PGPASSWORD}", Environment.GetEnvironmentVariable("PGPASSWORD"));
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseNpgsql(connectionString)
 );
 
 var app = builder.Build();
