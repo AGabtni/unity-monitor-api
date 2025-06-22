@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Unity.Monitoring.Models
 {
     public enum EnergyType
@@ -5,7 +7,7 @@ namespace Unity.Monitoring.Models
         Hydro,
         Solar,
         Wind,
-        Other
+        Other,
     }
 
     public enum AssetStatus
@@ -13,15 +15,15 @@ namespace Unity.Monitoring.Models
         Active,
         Inactive,
         Maintenance,
-        Decomissioned
+        Decomissioned,
     }
 
     public class Asset
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public EnergyType Type { get; set; }
-        public AssetStatus Status { get; set; }
-        public ICollection<MetricData> Metrics { get; set; }
+        public required string Name { get; set; }
+        public required EnergyType Type { get; set; }
+        public required AssetStatus Status { get; set; }
+        public ICollection<MetricData> Metrics { get; set; } = new List<MetricData>();
     }
 }
