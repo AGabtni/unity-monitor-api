@@ -1,11 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Unity.Monitoring.DTO
 {
-    public class MetricDataDto
+    public class MetricDataAddDto
     {
-        public int Id { get; set; }
-        public int AssetId { get; set; }
-        public string AssetName { get; set; }
-        public DateTime Timestamp { get; set; }
+        [Required]
+        public required int AssetId { get; set; }
         public double PowerOutput { get; set; }
         public double EnergyProduced { get; set; }
         public double TotalAvailableHours { get; set; }

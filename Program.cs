@@ -16,7 +16,11 @@ var connectionString = builder
     .Replace("${PGPASSWORD}", Environment.GetEnvironmentVariable("PGPASSWORD"));
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
+
+// Dependency injection
 builder.Services.AddScoped<IAssetService, AssetService>();
+builder.Services.AddScoped<IMetricDataService, MetricDataService>();
+
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();

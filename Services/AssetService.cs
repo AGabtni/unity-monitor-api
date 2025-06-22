@@ -31,6 +31,9 @@ namespace Unity.Monitoring.Services
                 .Assets.Include(a => a.Metrics)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
+            if (asset == null)
+                return null;
+
             return _mapper.Map<AssetDto>(asset);
         }
 
