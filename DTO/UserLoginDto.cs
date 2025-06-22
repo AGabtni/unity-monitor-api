@@ -1,12 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Unity.Monitoring.Models
 {
-    public class User
+    public class UserDto
     {
         public int Id { get; set; }
+
+        [Required]
         public required string Username { get; set; }
-        public required string PasswordHash { get; set; }
+
+        [Required]
         public required string Role { get; set; }
-        public DateTime? LastLoginUtc { get; set; }
-        public DateTime CreatedUtc { get; set; }
     }
 }

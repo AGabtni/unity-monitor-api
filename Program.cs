@@ -1,4 +1,6 @@
+using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Unity.Monitoring.Data;
 using Unity.Monitoring.Services;
 
@@ -20,8 +22,17 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connect
 // Dependency injection
 builder.Services.AddScoped<IAssetService, AssetService>();
 builder.Services.AddScoped<IMetricDataService, MetricDataService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddSingleton<IJwtService, JwtService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// Add Auth service + Jwt:
+var jwtService = builder.Services.BuildServiceProvider().GetRequiredService<IJwtService>();
+jwtService.ConfigureJwtAuthentication(builder.Services);
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -33,7 +44,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

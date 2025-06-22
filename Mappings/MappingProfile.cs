@@ -16,5 +16,9 @@ public class MappingProfile : Profile
         CreateMap<MetricData, MetricDataDto>()
             .ForMember(dest => dest.AssetName, opt => opt.MapFrom(src => src.Asset.Name));
         CreateMap<MetricDataAddDto, MetricData>().ReverseMap();
+
+        // User DTOs
+        CreateMap<User, UserDto>();
+        CreateMap<UserLoginDto, User>().ForMember(dest => dest.PasswordHash, opt => opt.Ignore());
     }
 }
