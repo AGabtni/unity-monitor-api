@@ -5,6 +5,6 @@ namespace Unity.Monitoring.Services
     public interface IJwtService
     {
         void ConfigureJwtAuthentication(IServiceCollection services);
-        string GenerateJwtToken(User user);
+        string GenerateJwtToken(UserDto user);
     }
 }

@@ -4,7 +4,8 @@ namespace Unity.Monitoring.Services
 {
     public interface IUserService
     {
-        Task<User?> AuthenticateUser(UserLoginDto loginDto);
-        Task<UserDto> CreateUser(UserLoginDto registerDto);
+        Task<UserDto?> AuthenticateUser(UserLoginDto loginDto);
+        Task CreateUser(UserLoginDto registerDto);
+        Task UpdateUserRole(UserUpdateDto updateDto);
     }
 }

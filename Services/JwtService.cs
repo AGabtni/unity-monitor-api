@@ -58,7 +58,7 @@ namespace Unity.Monitoring.Services
                 );
         }
 
-        public string GenerateJwtToken(User user)
+        public string GenerateJwtToken(UserDto user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
