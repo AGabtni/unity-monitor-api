@@ -5,10 +5,10 @@ namespace Unity.Monitoring.DTO
 {
     public class AssetPutDto
     {
-        [Required]
-        public required string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
-        public required AssetStatus Status { get; set; }
+        [AllowedAssetStatus]
+        public required string Status { get; set; }
     }
 }

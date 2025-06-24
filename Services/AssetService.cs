@@ -57,6 +57,16 @@ namespace Unity.Monitoring.Services
             return _mapper.Map<AssetDto>(asset);
         }
 
+        public async Task<IEnumerable<AssetDto>> CreateBatchAsync(IEnumerable<AssetAddDto> assets)
+        {
+            var newAssets = _mapper.Map<IEnumerable<Asset>>(assets);
+
+            await _dbContext.Assets.AddRangeAsync(newAssets);
+            await _dbContext.SaveChangesAsync();
+
+            return _mapper.Map<IEnumerable<AssetDto>>(newAssets);
+        }
+
         public async Task<AssetDto> UpdateAsync(int id, AssetPutDto assetDto)
         {
             var asset = await _dbContext

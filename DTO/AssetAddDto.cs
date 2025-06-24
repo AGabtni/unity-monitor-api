@@ -9,9 +9,11 @@ namespace Unity.Monitoring.DTO
         public required string Name { get; set; }
 
         [Required]
-        public required EnergyType Type { get; set; }
+        [AllowedAssetTypes]
+        public required string Type { get; set; }
 
         [Required]
-        public AssetStatus Status { get; set; }
+        [AllowedAssetStatus]
+        public required string Status { get; set; }
     }
 }
