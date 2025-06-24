@@ -10,6 +10,7 @@ namespace Unity.Monitoring.Models
         public required string Username { get; set; }
 
         [Required]
+        [AllowedRoles]
         public required string Role { get; set; }
 
         [Required]
